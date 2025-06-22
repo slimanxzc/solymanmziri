@@ -1,0 +1,359 @@
+/* الأساسيات - نفس ألوان الموقع */
+:root {
+    --primary-color: #1e1e1e;
+    --secondary-color: #2e8b57;
+    --gold-color: #2e8b57;
+    --dark-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1e1e1e;
+    --border-color: #2a2a2a;
+    --arabic-font: 'Amiri', 'Noto Naskh Arabic', serif;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--dark-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0; /* إضافة هذه لتجنب الهوامش الافتراضية */
+    padding: 0; /* إضافة هذه لتجنب الحشوات الافتراضية */
+    direction: rtl; /* لضمان الاتجاه من اليمين لليسار للغة العربية */
+    text-align: right; /* محاذاة النص لليمين */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* الهيدر */
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid var(--gold-color);
+}
+
+.logo h1 {
+    font-family: var(--arabic-font);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+.logo p {
+    font-family: var(--arabic-font);
+    font-size: 1.1rem;
+}
+
+.search-container {
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    padding-left: 20px;
+}
+
+.search-container > i {
+    font-size: 20px;
+    color: var(--secondary-color);
+}
+
+.search-container > input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 8px;
+    width: 200px;
+    color: #333; /* لضمان وضوح النص في حقل البحث ذو الخلفية البيضاء */
+}
+
+/* المحتوى الرئيسي */
+.main-content {
+    display: flex;
+    flex: 1;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--card-bg);
+    border-right: 1px solid var(--border-color);
+    padding: 1rem;
+    overflow-y: auto;
+    /* تأكد من أن الشريط الجانبي لا يتجاوز ارتفاع الشاشة */
+    max-height: calc(100vh - 150px); /* 150px هو تقريبي لمجموع ارتفاع الهيدر والفوتر */
+}
+
+.surah-list-container h2 { /* تم تغيير books-list-container إلى surah-list-container */
+    font-size: 1.8rem; /* تم تكبير حجم الخط ليتناسب مع عنوان السور */
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    text-align: center; /* توسيط العنوان */
+}
+
+.surahs-list { /* تم تغيير books-list إلى surahs-list */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+}
+
+.surah-item { /* تم تغيير book-item إلى surah-item */
+    padding: 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color); /* لضمان لون النص في الوضع المظلم */
+}
+
+.surah-item:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.surah-item.active {
+    background-color: var(--secondary-color);
+    color: white;
+    font-weight: bold;
+}
+
+.surah-icon { /* تم تغيير book-icon إلى surah-icon */
+    background-color: var(--gold-color);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+    flex-shrink: 0; /* منع الأيقونة من الانكماش */
+}
+
+.quran-content { /* تم تغيير hadith-content إلى quran-content */
+    flex: 1;
+    padding: 1rem 2rem;
+    overflow-y: auto;
+    background-color: var(--dark-color);
+    /* تأكد من أن المحتوى لا يتجاوز ارتفاع الشاشة */
+    max-height: calc(100vh - 150px);
+}
+
+.surah-header { /* تم تغيير book-header إلى surah-header */
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.surah-header h2 {
+    font-family: var(--arabic-font);
+    font-size: 2.5rem; /* تم تكبير حجم الخط ليتناسب مع عنوان السورة */
+    color: var(--gold-color);
+    margin-bottom: 0.5rem;
+}
+
+.surah-info { /* إضافة فئة لمعلومات السورة */
+    font-size: 1rem;
+    color: #888;
+}
+
+.verses-container { /* تم تغيير hadiths-container إلى verses-container */
+    margin-bottom: 2rem;
+}
+
+.verse-card { /* تم تغيير hadith-card إلى verse-card */
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    border-right: 3px solid var(--secondary-color); /* تم تغيير primary-color إلى secondary-color */
+}
+
+.verse-card:hover {
+    transform: translateY(-2px);
+}
+
+.verse-number { /* تم تغيير hadith-number إلى verse-number */
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.verse-text { /* تم تغيير hadith-text إلى verse-text */
+    font-family: var(--arabic-font);
+    font-size: 1.8rem; /* تم تعديل حجم الخط للآيات ليكون أكبر */
+    line-height: 2.5rem;
+    text-align: right;
+    margin: 1rem 0;
+    color: var(--text-color);
+}
+
+.tafsir-text { /* تم تغيير hadith-reference إلى tafsir-text وتعديل الأنماط */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.95rem; /* حجم خط أصغر للتفسير */
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #bbb; /* لون أفتح قليلاً للتفسير */
+    font-style: italic;
+    display: none; /* مخفي افتراضياً */
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    gap: 1rem; /* إضافة مسافة بين الأزرار */
+}
+
+.navigation button {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+}
+
+.navigation button:hover:not(:disabled) { /* إضافة :not(:disabled) لتجنب تأثير التحويم على الأزرار المعطلة */
+    background-color: #237a48;
+}
+
+.navigation button:disabled {
+    background-color: #444; /* لون أغمق للأزرار المعطلة */
+    cursor: not-allowed;
+}
+
+/* التذييل */
+footer {
+    background: var(--dark-color);
+    color: white;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    border-top: 2px solid var(--primary-color);
+    display: flex; /* لتمكين الترتيب العمودي لعناصر الفوتر */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer p {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.settings {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    flex-wrap: wrap; /* للسماح للعناصر بالالتفاف على الشاشات الصغيرة */
+}
+
+.settings button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.settings button:hover {
+    background-color: #237a48;
+}
+
+.font-size-control {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* التكيف مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        padding: 1rem; /* تقليل الحشوة على الجوال */
+    }
+    
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        max-height: 40vh; /* تقليل الارتفاع في الجوال للسماح برؤية المحتوى */
+    }
+    
+    .surahs-list { /* التأكد من التفاف القائمة بشكل جيد على الشاشات الصغيرة */
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 0.5rem;
+    }
+
+    .quran-content {
+        padding: 1.5rem; /* تعديل الحشوة */
+        max-height: unset; /* إزالة الارتفاع المحدود على الجوال */
+    }
+    
+    header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        padding: 1rem; /* تعديل الحشوة */
+    }
+    
+    .search-container {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    .search-container > input {
+        width: 100%;
+    }
+    
+    .navigation {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .navigation button {
+        width: 100%;
+        justify-content: center; /* توسيط الأزرار */
+    }
+
+    .settings {
+        flex-direction: column;
+    }
+}

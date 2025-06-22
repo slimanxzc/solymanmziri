@@ -1,2 +1,1 @@
-# solymanmziri
-islam
+# Quran
